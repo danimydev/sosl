@@ -1,0 +1,15 @@
+export enum OPERATORS {
+  EQUAL = '=',
+  NOT_EQUAL = '!=',
+  LESS_THAN = '<',
+  LESS_OR_EQUAL = '<=',
+  GREATER_THAN = '>',
+  GREATER_OR_EQUAL = '>=',
+  LIKE = 'LIKE',
+  AND = 'AND',
+  OR = 'OR',
+  NOT = 'NOT',
+  INCLUDES = 'includes',
+  EXCLUDES = 'excludes',
+  NO_OP = '',
+}
