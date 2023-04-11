@@ -9,14 +9,6 @@ export class SOSL {
   private whereCondition: Condition;
   private whereFields: Array<string> = [];
 
-  static doubleQuote(value: string) {
-    return `\"${value}\"`;
-  }
-
-  static singleQuote(value: string) {
-    return `\'${value}\'`;
-  }
-
   get value() {
     const findClause = this.findCondition
       ? `FIND {${this.parseCondition(this.findCondition)}}`
