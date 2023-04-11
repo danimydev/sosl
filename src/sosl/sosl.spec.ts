@@ -1,3 +1,4 @@
+import { doubleQuote } from "../../src/utils/string_manipulation";
 import { OPERATORS } from "./enum";
 import { SOSL } from "./sosl";
 
@@ -13,13 +14,13 @@ describe("SOSL query builder test suite", () => {
   });
 
   it("should create a SOSL query with find double quoted term", () => {
-    const query = new SOSL().find(SOSL.doubleQuote("Jhon Doe")).value;
+    const query = new SOSL().find(doubleQuote("Jhon Doe")).value;
     expect(query).toBe('FIND {"Jhon Doe"}');
   });
 
   it("should create a SOSL query with find condition", () => {
     const query = new SOSL().find({
-      x: SOSL.doubleQuote("Jhon Doe"),
+      x: doubleQuote("Jhon Doe"),
       op: OPERATORS.AND,
       y: "Brasil",
     }).value;
@@ -29,7 +30,7 @@ describe("SOSL query builder test suite", () => {
   it("should create a SOSL query with find condition and limit 100", () => {
     const query = new SOSL()
       .find({
-        x: SOSL.doubleQuote("Jhon Doe"),
+        x: doubleQuote("Jhon Doe"),
         op: OPERATORS.AND,
         y: "Brasil",
       })
@@ -40,7 +41,7 @@ describe("SOSL query builder test suite", () => {
   it("should create a SOSL query with find condition in Account and limit 100", () => {
     const query = new SOSL()
       .find({
-        x: SOSL.doubleQuote("Jhon Doe"),
+        x: doubleQuote("Jhon Doe"),
         op: OPERATORS.AND,
         y: "Brasil",
       })
@@ -54,7 +55,7 @@ describe("SOSL query builder test suite", () => {
   it("should create a SOSL query with find condition in Account, Test and limit 100", () => {
     const query = new SOSL()
       .find({
-        x: SOSL.doubleQuote("Jhon Doe"),
+        x: doubleQuote("Jhon Doe"),
         op: OPERATORS.AND,
         y: "Brasil",
       })
@@ -68,7 +69,7 @@ describe("SOSL query builder test suite", () => {
   it("should create a SOSL query with find condition in Account, Test returning name and limit 100", () => {
     const query = new SOSL()
       .find({
-        x: SOSL.doubleQuote("Jhon Doe"),
+        x: doubleQuote("Jhon Doe"),
         op: OPERATORS.AND,
         y: "Brasil",
       })
@@ -179,7 +180,7 @@ describe("SOSL query builder test suite", () => {
   });
 
   it("should create SOSL query finding term in Knowledge__kav by model year", () => {
-    const year = SOSL.doubleQuote("2005");
+    const year = doubleQuote("2005");
     const query = new SOSL()
       .find("test")
       .in(["ALL FIELDS"])
